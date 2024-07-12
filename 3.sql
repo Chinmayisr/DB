@@ -50,12 +50,12 @@ LEFT JOIN RESERVES r ON s.SID = r.SID
 GROUP BY s.SID, s.SName;
 
 #Mongo DB
-db.createCollection("boaters")
-db.boaters.insert({"B_ID":9988,"B_Name":'ABC',"Colour":'Black',"S_Name":'
-John',"S_ID":1234,"DAY":'2017-12-25'}) 
-db.boaters.insert({"B_ID":8877,"B_Name":'DEF',"Colour":'White',"S_Name":'
-Smith',"S_ID":4567,"DAY":'2017-11-24'})
-db.boaters.insert({"B_ID":7766,"B_Name":'GHI',"Colour":'Red',"S_Name":'Ja
-ck',"S_ID":7890,"DAY":'2017-10-23'})
-db.boaters.find({"S_Name":'Jack'}).count()
-db.boaters.find({"Colour":'Red'}).pretty()
+>db.createCollection("boaters")
+>db.boaters.insert({"B_ID":9988,"B_Name":'ABC',"Colour":'Black',"S_Name":'John',"S_ID":1234,"DAY
+":'2017-12-25'}) 
+>db.boaters.insert({"B_ID":8877,"B_Name":'DEF',"Colour":'White',"S_Name":'Smith',"S_ID":4567,"D
+AY":'2017-11-24'})
+>db.boaters.insert({"B_ID":7766,"B_Name":'GHI',"Colour":'Red',"S_Name":'Jack',"S_ID":7890,"DAY":'
+2017-10-23'})
+>db.boaters.find({"S_Name":'Jack'}).count()
+>db.boaters.find({"Colour":'Red'}).pretty()
