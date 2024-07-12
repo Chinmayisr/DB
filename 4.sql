@@ -90,12 +90,9 @@ WHERE ba.NumberOfAccounts < (
 );
 
 #Mongo DB
->db. Create Collection (banking")
->db. banking.insert({ "A_No":7421, "A_Type":'savings', 'B_ID": 
-1542,"C_Name":'jeevan'})
->db. banking.insert({ "A_No":4315, "A_Type":'savings', 'B_ID": 
-1587,"C_Name":'harsha'}) 
->db. banking.insert({ "A_No":7906, "A_Type":'current', 'B_ID": 
-1542,"C_Name":'akash'})
->db. banking. find ({"B_ID":1587},{"C_Name":1,_id:0}). pretty()
->db. banking. aggregate ([{$group: {_id: '$C_Name', total: {$sum:1}}}])
+db.createCollection("banking")
+db.banking.insert({ "A_No": 7421, "A_Type": 'savings', "B_ID": 1542, "C_Name": 'jeevan' })
+db.banking.insert({ "A_No": 4315, "A_Type": 'savings', "B_ID": 1587, "C_Name": 'harsha' })
+db.banking.insert({ "A_No": 7906, "A_Type": 'current', "B_ID": 1542, "C_Name": 'akash' })
+db.banking.find({ "B_ID": 1587 }, { "C_Name": 1, _id: 0 }).pretty()
+db.banking.aggregate([{ $group: { _id: '$C_Name', total: { $sum: 1 } } }])
