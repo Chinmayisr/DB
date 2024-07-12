@@ -47,13 +47,14 @@ DELETE FROM Part
 WHERE PCOLOR = :PCOLOR;
 
 #Mongo DB
-db.createCollection("warehouse1")
-db.warehouse1.insert({"P_ID":1947,"P_Name":'bolts',"Colour":'black',"S_No
-":1234,"S_Name":'ABC',"Address":'bangaluru'})
-db.warehouse1.insert({"P_ID":2867,"P_Name":'nuts',"Colour":'grey',"S_No":
-5678,"S_Name":'XYZ',"Address":'davangere'})
-db.warehouse1.insert({"P_ID":9462,"P_Name":'screw',"Colour":'green',"S_No
-":6320,"S_Name":'LKF',"Address":'hubli'})
-db.warehouse1.update({"P_ID":1947},{$set:{"P_ID":8888}},{multi:true})
-db.warehouse1.find().pretty()
-db.warehouse1.find({"P_ID":9462}).pretty()
+>db.createCollection("warehouse1")
+>db.warehouse1.insertOne({"P_ID":1947,"P_Name":'bolts',"Colour":'black',"S_No":1234,"S_Name":'
+ABC',"Address":'bangaluru'})
+>db.warehouse1.insertOne({"P_ID":2867,"P_Name":'nuts',"Colour":'grey',"S_No":5678,"S_Name":'X
+YZ',"Address":'davangere'})
+>db.warehouse1.insertOne({"P_ID":9462,"P_Name":'screw',"Colour":'green',"S_No":6320,"S_Name"
+:'LKF',"Address":'hubli'})
+>db.warehouse1.updateOne({"P_ID":1947}, {$set: {"P_ID":8888}})
+>db.warehouse1.find().pretty()
+>db.warehouse1.find({"P_ID":9462}).pretty()
+
