@@ -56,11 +56,16 @@ GROUP BY s.StudentID, s.Name, s.Gender, s.Address;
 
 #MongoDB
 db.createCollection("library")
-db.library.insert({"ISBN":1122,"Title":'datbase',"Author":'ABC',"Publishe
-r":'WXYZ',"SSName":’jeevan’}) 
-db.library.insert({"ISBN":2233,"Title":'algorithm',"Author":'DEF',"Publis
-her":'ABCD',"SSName":’harsha})
-db.library.find({,"Author":'ABC'},{"ISBN":1,”Title”:1,”Author”:1.”Publish
-er”:1,_id:0}).pretty()
-db.library.find({"Title":'datbase'},{"SSN":1,_id:0}).pretty()
+db.library.insert({"ISBN": 123 , "Title": 'database', "Author": 'ABC', "Publisher": 'WXYZ', "S_Name": 
+'jeevan', "S_Gender":'Male'})
+db.library.insert({"ISBN": 124, "Title": 'algorithm', "Author": 'DEF', "Publisher": 'ABCD', "S_Name": 
+'harsha', "S_Gender":'Male'})
+db.library.insert({"ISBN": 125, "Title": 'database', "Author": 'DEF', "Publisher": 'ABCD', "S_Name": 
+'namitha', "S_Gender":'Female'})
+db.library.insert({"ISBN": 126, "Title": 'java', "Author": 'DEF', "Publisher": 'ABCD', "S_Name": 'anjali', 
+"S_Gender":'Female'})
+db.library.find({ "ISBN": { $in: [123, 124] } }, { "S_Name": 1, _id: 0 }).pretty()
+db.library.find({ "Title": "database", "S_Gender": "Female" }, { "S_Name": 1, _id: 0 }).pretty()
+db.library.aggregate([{$group: {_id: "$S_Name",TBB: { $sum: 1 }} },{$project: {_id: 0,S_Name: 
+"$_id",TBB: 1}}]).pretty()
 
