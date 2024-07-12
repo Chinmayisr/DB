@@ -49,4 +49,13 @@ WHERE EmployeeSSN = 123456789;
 SELECT * FROM WorksOn WHERE EmployeeSSN = 123456789;
 
 #Mongo DB
-
+db.createCollection("EMPLOYEE1")
+db.EMPLOYEE1.insert({"SSN":4567,"Name":'James',"Dept_name":'XYZ',"Project
+_no":101})
+db.EMPLOYEE1.insert({"SSN":3256,"Name":'Jack',"Dept_name":'XXZ',"Project_
+no":102})
+db.EMPLOYEE.insert({"SSN":5673,"Name":'Jhon',"Dept_name":'ABC',"Project_n
+o":103})
+db.EMPLOYEE.find().pretty()
+db.EMPLOYEE1.find({"Dept_name":'XYZ'}).pretty()
+db.EMPLOYEE1.find({"Project_no":102}).pretty()
