@@ -64,8 +64,5 @@ db.library.insert({"ISBN": 125, "Title": 'database', "Author": 'DEF', "Publisher
 'namitha', "S_Gender":'Female'})
 db.library.insert({"ISBN": 126, "Title": 'java', "Author": 'DEF', "Publisher": 'ABCD', "S_Name": 'anjali', 
 "S_Gender":'Female'})
-db.library.find({ "ISBN": { $in: [123, 124] } }, { "S_Name": 1, _id: 0 }).pretty()
-db.library.find({ "Title": "database", "S_Gender": "Female" }, { "S_Name": 1, _id: 0 }).pretty()
-db.library.aggregate([{$group: {_id: "$S_Name",TBB: { $sum: 1 }} },{$project: {_id: 0,S_Name: 
-"$_id",TBB: 1}}]).pretty()
-
+>db.library.find({“Author”: ‘ABC’})
+>db.library.find({“Title”: “database”},{“s_name”:1, _id: 0}). pretty()
