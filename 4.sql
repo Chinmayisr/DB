@@ -86,7 +86,7 @@ WHERE ba.NumberOfAccounts < (
         SELECT COUNT(AccountID) AS NumberOfAccounts
         FROM ACCOUNT
         GROUP BY BranchID
-    )
+    ) da
 );
 
 #Mongo DB
