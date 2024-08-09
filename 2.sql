@@ -58,3 +58,42 @@ YZ',"Address":'davangere'})
 >db.warehouse1.find().pretty()
 >db.warehouse1.find({"P_ID":9462}).pretty()
 
+    
+
+create table SHIPMENT (PartNumber number, partName varchar(20));
+
+insert into SHIPMENT values (101, 'wheel'); insert into SHIPMENT values (102, 'tyre');
+
+insert into SHIPMENT values (103, 'tube');
+
+create table SHIPMENT_PART (PartNumber number, partName varchar(20));
+
+SET SERVEROUTPUT ON;
+
+DECLARE
+
+Define the part number to filter by v_part_number SHIPMENT. PartNumber%TYPE := 101;
+
+BEGIN
+
+Insert rows into SHIPMENT_PART from SHIPMENT where PartNumber matches v part_number
+
+INSERT INTO SHIPMENT_PART SELECT * FROM SHIPMENT WHERE Part Number = v_part_number;
+
+Display the number of rows copied
+
+DBMS_OUTPUT.PUT_LINE(SQL%ROWCOUNT || rows copied to SHIPMENT_PART table for PartNumber: ' || v_part_number);
+
+EXCEPTION
+
+WHEN OTHERS THEN
+
+Handle exceptions
+
+DBMS_OUTPUT.PUT_LINE('Error: ' || SQLERRM);
+
+END;
+
+/
+
+SELECT * from SHIPMENT_PART;
