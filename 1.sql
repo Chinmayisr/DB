@@ -45,7 +45,6 @@ GROUP BY Department;
 UPDATE WorksOn
 SET ProjectNo = 2 
 WHERE EmployeeSSN = 123456789;
-
 SELECT * FROM WorksOn WHERE EmployeeSSN = 123456789;
 
 #Mongo DB
@@ -54,3 +53,11 @@ SELECT * FROM WorksOn WHERE EmployeeSSN = 123456789;
 >db.EMPLOYEE1.insert({"SSN":3256,"Name":'Jack',"Dept_name":'XXZ',"Project_ no":102}) 
 >db.EMPLOYEE1.find({"Dept_name":'XYZ'}).pretty() 
 >db.EMPLOYEE1.find({"Project_no":102}).pretty()
+
+set serveroutput on 
+begin 
+update employee1 
+set salary=(1.15*salary) where deptno=10; 
+dbms_output.put_line('number of rows updated are'||sql%rowcount); 
+end; 
+/ 
