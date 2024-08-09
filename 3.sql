@@ -59,3 +59,57 @@ AY":'2017-11-24'})
 2017-10-23'})
 >db.boaters.find({"S_Name":'Jack'}).count()
 >db.boaters.find({"Colour":'Red'}).pretty()
+
+SET SERVEROUTPUT ON;
+
+DECLARE
+
+n NUMBER: &n;
+
+Prompt for input number
+
+j NUMBER: 2;
+
+flag NUMBER := 0;
+
+BEGIN
+
+IF n <= 1 THEN
+
+dbms_output.put_line(n || is not a prime number');
+
+ELSE
+
+WHILE (j <= n / 2) LOOP IF MOD(n, j) = 0 THEN dbms_output.put_line(n || is not a prime number');
+
+flag := 1;
+
+EXIT;
+
+ELSE
+
+j := j + 1;
+
+END
+
+IF;
+
+END LOOP;
+
+IF flag = THEN
+
+dbms_output.put_line(n || ' is a prime number');
+
+END IF;
+
+END IF;
+
+EXCEPTION
+
+WHEN OTHERS THEN
+
+dbms_output.put_line('Error: ' || SQLERRM);
+
+END;
+
+/
