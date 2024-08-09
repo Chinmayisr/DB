@@ -96,3 +96,43 @@ db.banking.insert({ "A_No": 4315, "A_Type": 'savings', "B_ID": 1587, "C_Name": '
 db.banking.insert({ "A_No": 7906, "A_Type": 'current', "B_ID": 1542, "C_Name": 'akash' })
 db.banking.find({ "B_ID": 1587 }, { "C_Name": 1, _id: 0 }).pretty()
 db.banking.aggregate([{ $group: { _id: '$C_Name', total: { $sum: 1 } } }])
+
+create table table1 (pno int, pname char(20), colour char(20), primary key(pno)); create table copy_table1 (pno int, pname char(20), colour char(20), primary key(pno));
+
+insert into table1 values (10, 'nuts', 'black'); insert into table1 values (20, 'bolts','grey');
+
+insert into table1 values (30, 'screw','green');
+
+set serveroutput on
+
+declare
+
+cursor curr is select "from table1;
+
+counter int;
+
+rows table1%rowtype;
+
+begin
+
+open curr;
+
+loop
+
+fetch curr into rows;
+
+exit when curr%not found;
+
+insert into copy_table1 values (rows.pno, rows.pname, rows.colour); end loop;
+
+counter: curr%rowcount;
+
+close curr;
+
+dbms_output.put_line(counter||' rows inserted into the table copy_part1 ');
+
+end;
+
+/
+
+select * from copy_table1;
